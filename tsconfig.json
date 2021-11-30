@@ -100,6 +100,6 @@
     "noEmitOnError": true
   },
   "exclude": ["**/*.dev.ts", "node_modules"], // node_modules is excluded by default
-  "include": ["types.ts"] // if we set it it willk exclussively compile what is included, if not rootm
+  // "include": ["types.ts"] // if we set it it willk exclussively compile what is included, if not rootm
   // include - include
 }

@@ -1,16 +1,21 @@
 type Employee = { name: string }
-class Department {
+abstract class Department {
+    static fisicalYear = 2020
     // private name: string // this is pure typescript
     protected employees: Employee[]
     private lastReport: string
 
     constructor(readonly id: number, private n: string) { // readonly: initialize just once
-        this.employees = []
+      console.log(Department.fisicalYear)  
+      this.employees = []
+      this.lastReport = '' 
     }
 
-    addEmployee(employee: Employee) { // private is a typescript thing, new in new javascript versions
-        this.employees.push(employee)
+    static createEmployee(name: string): Employee {
+        return { name }
     }
+
+    abstract addEmployee(employee: Employee): void
 
     get mostRecentReport() {
         return 'REPORT' + this.lastReport
@@ -23,11 +28,17 @@ class Department {
 }
 
 class ITDepartment  extends Department {
-    constructor() {
-        super(1, 'IT')
+    constructor(id: number) {
+        super(id, 'IT')
     }
+
+    addEmployee (employee: Employee): void { // private is a typescript thing, new in new javascript versions
+      this.employees.push(employee)
+    }
+
+
 }
 
-const accountant = new Department(2, 'accounting')
+const accountant = new ITDepartment(2)
 
 accountant.addEmployee({ name: 'Eze' })
