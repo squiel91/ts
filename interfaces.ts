@@ -16,6 +16,18 @@ interface Movable {
   move(position: Position): Position;
 }
 
+class Test implements Movable {
+  constructor (public position: Position) {
+
+  }
+
+
+  move (position: Position) {
+    this.position = position
+    return position
+  }
+}
+
 class Person implements Greetable, Movable {
   
   constructor(public name: string, public position: Position, public age?: number) {

@@ -1,4 +1,13 @@
 "use strict";
+class Test {
+    constructor(position) {
+        this.position = position;
+    }
+    move(position) {
+        this.position = position;
+        return position;
+    }
+}
 class Person {
     constructor(name, position, age) {
         this.name = name;

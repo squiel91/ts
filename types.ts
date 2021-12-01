@@ -8,8 +8,10 @@ boolean: true, false (no truthy of falsy)
 
 */
 
-const a = document.getElementById('a')! as HTMLInputElement
-const b = document.getElementById('b')! as HTMLInputElement
+// TYPE CASTING
+const a = document.getElementById('a')! as HTMLInputElement // the ! assures ts that the value will never be null
+// notice that if we dont want to ensure is not null, we should use a if check. Also remember that in that case we cannot use typecasting before the check
+const b = <HTMLInputElement>document.getElementById('b')! // both ways of typecasting are equivalent 
 
 const calc = document.getElementById('calc')!
 
